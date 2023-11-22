@@ -9,6 +9,8 @@ from tklinenums import TkLineNumbers
 
 public_file = None
 
+Version = "1.0"
+
 
 class Rodent():
     #Create New File
@@ -101,9 +103,12 @@ class Rodent():
         # Status Bar
         self.StatusBar = Frame(self.TextFrame, bg="#648", height=12)
         self.StatusBar.pack(fill=BOTH, expand=False, side=BOTTOM)
-        self.Position = Label(self.StatusBar, text="112", bg="#fff", borderwidth=2, relief=GROOVE, padx= 20)
+        global Version
+        self.Version = Label(self.StatusBar, text=f"Version: {Version}", bg="#648", fg="#fff", padx=5)
+        self.Version.pack(side=RIGHT)
+        self.Position = Label(self.StatusBar, text="112",bg="#648", fg="#fff", padx=5)
         self.Position.pack(side=RIGHT)
-        self.TextFrame.grid_columnconfigure((0,1), weight=1)
+        # self.TextFrame.grid_columnconfigure((0,1), weight=1)
 
         #Line Counter
         #LineNumbers
