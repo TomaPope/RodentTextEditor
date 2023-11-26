@@ -6,6 +6,7 @@ import os
 from tkinter import Text, Tk
 from tkinter.ttk import Style, Notebook
 from tklinenums import TkLineNumbers
+import ctypes
 
 Version = "1.0"
 
@@ -258,7 +259,10 @@ class CustomNotebook(Notebook):
             g.TxtPages.pop(index)
             g.Addresses.pop(index)
             self.forget(index)
-            self.event_generate("<<NotebookTabClosed>>")
+            self.event_generate("<<NotebookTabClosed>>")  
+            #7 no 6 yes 2 cancel
+            x = ctypes.windll.user32.MessageBoxW(0, "Do you wish to save the file", "Rodent", 3)
+            print(x)
 
         self.state(["!pressed"])
         self._active = None
